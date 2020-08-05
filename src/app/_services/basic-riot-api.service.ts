@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LolApi, Constants } from 'twisted';
-
-const api = new LolApi();
+import { HttpClient } from '@angular/common/http';
+import { SummonerByNameResult } from '../_models/summoner-by-name-result';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,10 @@ const api = new LolApi();
 
 export class BasicRiotApiService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public summonerByNameExample() {
-    const summoner = api.Summoner.getByName('Hide on bush', Constants.Regions.KOREA);
-    console.log(summoner);
+  public summonerByNameExample(summonerName: string, server: string): Observable<SummonerByNameResult> {
+    const url = `http://localhost:5000/api/SummonerBase/GetBySummonerName/${summonerName}/${server}`;
+    return this.http.get<SummonerByNameResult>(url);
   }
 }
