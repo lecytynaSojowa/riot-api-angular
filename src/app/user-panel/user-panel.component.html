@@ -1,54 +1,51 @@
-   <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.accountId}}</h1>
-                </div>
+<div class="container tableWidth">
+    <input type="text" id="userName" class="form-control" [value]="inputUsername">
+    <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem>Action - 1</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.profileIconId}}</h1>
-                </div>
-            </div>
+        <button type="button" class="btn btn-info" (click)="submitUsername()">Send</button>
         </div>
-                <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.revisionDate}}</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.name}}</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.id}}</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.puuid}}</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card card-body text-center mt-5">
-                    <h1 class="heading display-5">{{currentSummoner?.summonerLevel}}</h1>
-                </div>
-            </div>
-        </div>
-
-
-
     </div>
+</div>
+    
+<div class="container tableWidth">
+    <table class="table table-dark">
+        <tbody>
+            <tr>
+                <td>Account Id</td>
+                <td>{{currentSummoner?.accountId}}</td>
+            </tr>
+            <tr>
+                <td>Profile Icon</td>
+                <td>{{currentSummoner?.profileIconId}}</td>
+            </tr>
+            <tr>
+                <td>Revision Date</td>
+                <td>{{currentSummoner?.revisionDate}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{currentSummoner?.name}}</td>
+            </tr>
+            <tr>
+                <td>Id</td>
+                <td>{{currentSummoner?.id}}</td>
+            </tr>
+            <tr>
+                <td>Puuid</td>
+                <td>{{currentSummoner?.puuid}}</td>
+            </tr>
+            <tr>
+                <td>Summoner Level</td>
+                <td>{{currentSummoner?.summonerLevel}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

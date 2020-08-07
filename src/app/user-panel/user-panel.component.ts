@@ -9,14 +9,18 @@ import { SummonerByNameResult } from '../_models/summoner-by-name-result';
 })
 export class UserPanelComponent implements OnInit {
   public currentSummoner: SummonerByNameResult;
+  public inputUsername: string;
   constructor(
     private basicRiotApiService: BasicRiotApiService) { }
 
   ngOnInit() {
     let summoner = this.basicRiotApiService.summonerByNameExample('Artekat', 'EUNE').subscribe((result: SummonerByNameResult) => {
       this.currentSummoner = result;
-      console.log(this.currentSummoner);
     });
+  }
+
+  public submitUsername() {
+    console.log(this.inputUsername);
   }
 
 }
