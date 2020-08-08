@@ -1,21 +1,55 @@
 <div class="container tableWidth">
-    <input type="text" id="userName" class="form-control" [value]="inputUsername">
-    <div class="row">
-        <div class="col">
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem>Action - 1</button>
-              <button ngbDropdownItem>Another Action</button>
-              <button ngbDropdownItem>Something else is here</button>
+<div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 form-group">
+            <label for="summoner-name">Summoner Name</label>
+            <input
+              id="summoner-name"
+              type="text"
+              class="form-control"
+              name="summonerName"
+              [ngModel]="''"
+              placeholder="summoner name"
+              required
+            />
+          </div>
+  
+          <div class="col-sm-12 col-md-4 form-group">
+            <label for="server-name">Server</label>
+            <select
+              class="form-control"
+              id="server-name"
+              required
+              [ngModel]="'default'"
+              name="serverName"
+            >
+            <option disabled value="default">Select server</option>
+            <option *ngFor="let server of basicServerName" value="{{server.value}}">{{server.label}}</option>
+        </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-4 form-group"></div>
+              <div class="col-sm-12 col-md-4 form-group">
+                <button class="btn btn-success" type="submit">Dodaj</button>
+                <button class="btn btn-danger" type="button">Usuń</button>
+                <button class="btn btn-primary" type="button" (click)="onClear()">
+                  Wyczyść
+                </button>
+              </div>
+              <div class="col-sm-12 col-md-4 form-group"></div>
             </div>
+          </div>
         </div>
-        <button type="button" class="btn btn-info" (click)="submitUsername()">Send</button>
-        </div>
+      </form>
     </div>
 </div>
-    
-<div class="container tableWidth">
+  </div><div class="container tableWidth">
     <table class="table table-dark">
         <tbody>
             <tr>

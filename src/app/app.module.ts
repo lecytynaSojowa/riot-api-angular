@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserPanelComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, NgbModule
+    BrowserModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
