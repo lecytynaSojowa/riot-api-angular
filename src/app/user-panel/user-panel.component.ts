@@ -13,6 +13,8 @@ export class UserPanelComponent implements OnInit {
   public currentSummoner: SummonerByNameResult;
   public inputUsername: string;
   public server: ServerName;
+  public displayErrorAlert = false;
+  public errorMessage = 'Check your info!';
   // tslint:disable-next-line: max-line-length
   public basicServerName: ServerName[] = [{ value: 'EUNE', label: 'European Nordic East' }, { value: 'EUW', label: 'European West' }, { value: 'NA', label: 'North America' }];
   constructor(
@@ -35,6 +37,11 @@ export class UserPanelComponent implements OnInit {
   public getSummonerInfo(summonerName: string, summonerServer: string) {
     this.basicRiotApiService.summonerByNameExample(summonerName, summonerServer).subscribe((result: SummonerByNameResult) => {
       this.currentSummoner = result;
+      if (!result) {
+        this.ifFailRequest();
+      }
+    }, (error: any) => {
+      this.ifFailRequest();
     });
 
   }
@@ -42,4 +49,8 @@ export class UserPanelComponent implements OnInit {
     console.log(this.inputUsername);
   }
 
+  public ifFailRequest() {
+    this.displayErrorAlert = true;
+    setTimeout(() => this.displayErrorAlert = false, 5000);
+  }
 }
