@@ -5,11 +5,15 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { UserMatchesComponent } from './user-panel/user-matches/user-matches.component';
+import { UserMatchComponent } from './user-panel/user-matches/user-match/user-match.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    UserMatchesComponent,
+    UserMatchComponent
   ],
   imports: [
     BrowserModule,

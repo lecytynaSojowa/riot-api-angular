@@ -1,34 +1,21 @@
 <div class="container tableWidth">
-  <ngb-alert  type="danger" *ngIf="displayErrorAlert" (close)="displayErrorAlert = false">{{errorMessage}}</ngb-alert>
-<div class="row">
+  <ngb-alert type="danger" *ngIf="displayErrorAlert" (close)="displayErrorAlert = false">{{errorMessage}}</ngb-alert>
+  <div class="row">
     <div class="col-xs-12 col-lg-12">
       <form (ngSubmit)="onSubmit(form)" #form="ngForm">
         <div class="row">
           <div class="col-sm-12 col-md-4 form-group">
             <label for="summoner-name">Summoner Name</label>
-            <input
-              id="summoner-name"
-              type="text"
-              class="form-control"
-              name="summonerName"
-              [ngModel]="''"
-              placeholder="summoner name"
-              required
-            />
+            <input id="summoner-name" type="text" class="form-control" name="summonerName" [ngModel]="''"
+              placeholder="summoner name" required />
           </div>
-  
+
           <div class="col-sm-12 col-md-4 form-group">
             <label for="server-name">Server</label>
-            <select
-              class="form-control"
-              id="server-name"
-              required
-              [ngModel]="'default'"
-              name="serverName"
-            >
-            <option disabled value="default">Select server</option>
-            <option *ngFor="let server of basicServerName" value="{{server.value}}">{{server.label}}</option>
-        </select>
+            <select class="form-control" id="server-name" required [ngModel]="'default'" name="serverName">
+              <option disabled value="default">Select server</option>
+              <option *ngFor="let server of basicServerName" value="{{server.value}}">{{server.label}}</option>
+            </select>
           </div>
         </div>
         <hr />
@@ -49,39 +36,45 @@
         </div>
       </form>
     </div>
+  </div>
 </div>
-  </div><div class="container tableWidth">
-    <table class="table table-dark">
-        <tbody *ngIf="currentSummoner">
-            <tr>
-                <td>Account Id</td>
-                <td>{{currentSummoner.accountId}}</td>
-            </tr>
-            <tr>
-                <td>Profile Icon</td>
-                <td><img src="https://ddragon.leagueoflegends.com/cdn/10.16.1/img/profileicon/{{currentSummoner.profileIconId}}.png" alt="profile-icon" id="profile-icon">
-                  </td>
-            </tr>
-            <tr>
-                <td>Revision Date</td>
-                <td>{{currentSummoner.revisionDate | date}}</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>{{currentSummoner.name}}</td>
-            </tr>
-            <tr>
-                <td>Id</td>
-                <td>{{currentSummoner.id}}</td>
-            </tr>
-            <tr>
-                <td>Puuid</td>
-                <td>{{currentSummoner.puuid}}</td>
-            </tr>
-            <tr>
-                <td>Summoner Level</td>
-                <td>{{currentSummoner.summonerLevel}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container tableWidth">
+  <table class="table table-dark">
+    <tbody *ngIf="currentSummoner">
+      <tr>
+        <td>Account Id</td>
+        <td>{{currentSummoner.accountId}}</td>
+      </tr>
+      <tr>
+        <td>Profile Icon</td>
+        <td><img
+            src="https://ddragon.leagueoflegends.com/cdn/10.16.1/img/profileicon/{{currentSummoner.profileIconId}}.png"
+            alt="profile-icon" id="profile-icon">
+        </td>
+      </tr>
+      <tr>
+        <td>Revision Date</td>
+        <td>{{currentSummoner.revisionDate | date}}</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{currentSummoner.name}}</td>
+      </tr>
+      <tr>
+        <td>Id</td>
+        <td>{{currentSummoner.id}}</td>
+      </tr>
+      <tr>
+        <td>Puuid</td>
+        <td>{{currentSummoner.puuid}}</td>
+      </tr>
+      <tr>
+        <td>Summoner Level</td>
+        <td>{{currentSummoner.summonerLevel}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="inputUsername && server && currentSummoner">
+  <app-user-matches [summonerName]="inputUsername" [serverName]="server"></app-user-matches>
 </div>

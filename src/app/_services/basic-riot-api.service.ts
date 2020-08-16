@@ -15,4 +15,9 @@ export class BasicRiotApiService {
     const url = `http://localhost:5000/api/SummonerBase/GetBySummonerName/${summonerName}/${server}`;
     return this.http.get<SummonerByNameResult>(url);
   }
+
+  public matchesBySummonerName(summonerName: string, server: string): Observable<SummonerByNameResult> {
+    const url = `http://localhost:5000/api/Match/GetSummonerMatch/${summonerName}/${server}`;
+    return this.http.get<SummonerByNameResult>(url);
+  }
 }

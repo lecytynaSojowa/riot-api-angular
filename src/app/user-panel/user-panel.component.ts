@@ -24,6 +24,8 @@ export class UserPanelComponent implements OnInit {
   @ViewChild('form', { static: false }) carForm: NgForm;
 
   onSubmit(form: NgForm) {
+    this.inputUsername = form.value.summonerName;
+    this.server = form.value.serverName;
     this.getSummonerInfo(form.value.summonerName, form.value.serverName);
   }
 
