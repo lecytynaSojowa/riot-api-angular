@@ -21,8 +21,8 @@ export class UserMatchesComponent implements OnInit {
 
   public getMatchesInfo() {
     this.basicRiotApiService.matchesBySummonerName(this.summonerName, this.serverName).subscribe((result: any) => {
-      if(result.matches) {
-        this.matches = result.matches;
+      if(result) {
+        this.matches = result;
       }
     });
   }

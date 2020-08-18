@@ -7,6 +7,9 @@ export interface Match {
     role: Role;
     seson: number;
     timestamp: number;
+    win: boolean;
+    gameDuration: number;
+    gameMode: string;
 }
 enum Role {
     DUO = 'DUO',
