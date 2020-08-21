@@ -3,13 +3,12 @@
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-        <div class="row">
+        <div class="row user-input">
           <div class="col-sm-12 col-md-4 form-group">
             <label for="summoner-name">Summoner Name</label>
             <input id="summoner-name" type="text" class="form-control" name="summonerName" [ngModel]="''"
               placeholder="summoner name" required />
           </div>
-
           <div class="col-sm-12 col-md-4 form-group">
             <label for="server-name">Server</label>
             <select class="form-control" id="server-name" required [ngModel]="'default'" name="serverName">
@@ -24,11 +23,10 @@
             <div class="row">
               <div class="col-sm-12 col-md-4 form-group"></div>
               <div class="col-sm-12 col-md-4 form-group">
-                <button class="btn btn-success" type="submit">Dodaj</button>
-                <button class="btn btn-danger" type="button">Usuń</button>
-                <button class="btn btn-primary" type="button" (click)="onClear()">
-                  Wyczyść
-                </button>
+                <button class="button add-info" type="submit">Dodaj</button>
+                <button class="button clear-info" type="button" (click)="onClear()">Wyczyść</button>
+                <!-- <button class="btn btn-success" type="submit">Dodaj</button>
+                <button class="btn btn-primary" type="button" (click)="onClear()">Wyczyść</button> -->
               </div>
               <div class="col-sm-12 col-md-4 form-group"></div>
             </div>
@@ -39,7 +37,7 @@
   </div>
 </div>
 <div class="container tableWidth">
-  <table class="table table-dark">
+  <table class="table table-color">
     <tbody *ngIf="currentSummoner">
       <tr>
         <td>Account Id</td>

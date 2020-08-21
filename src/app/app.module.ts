@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { UserMatchesComponent } from './user-panel/user-matches/user-matches.component';
 import { UserMatchComponent } from './user-panel/user-matches/user-match/user-match.component';
+import { TitleCasePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { UserMatchComponent } from './user-panel/user-matches/user-match/user-ma
     NgbModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    TitleCasePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

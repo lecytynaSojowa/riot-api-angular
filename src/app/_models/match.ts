@@ -1,5 +1,6 @@
 export interface Match {
     champion: number;
+    championName: string;
     gameId: number;
     lane: Lane;
     platformId: string;

@@ -31,6 +31,7 @@ export class UserPanelComponent implements OnInit {
 
   onClear() {
     this.carForm.reset();
+    this.currentSummoner = null;
   }
 
   ngOnInit() {
