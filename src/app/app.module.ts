@@ -8,19 +8,26 @@ import { FormsModule } from '@angular/forms';
 import { UserMatchesComponent } from './user-panel/user-matches/user-matches.component';
 import { UserMatchComponent } from './user-panel/user-matches/user-match/user-match.component';
 import { TitleCasePipe } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { appRouters } from './routers';
+import { MatchInfoComponent } from './match-info/match-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserPanelComponent,
     UserMatchesComponent,
-    UserMatchComponent
+    UserMatchComponent,
+    MatchInfoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRouters)
   ],
   providers: [
     TitleCasePipe

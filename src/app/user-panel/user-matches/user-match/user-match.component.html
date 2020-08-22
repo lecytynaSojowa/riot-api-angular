@@ -1,7 +1,7 @@
 <div  class="row">
     <div class="col"><img src="{{returnChampionUrl()}}"></div>
     <div class="col">{{match.champion}}</div>
-    <div class="col">{{match.gameId}}</div>
+    <div class="col" routerLink="/match/{{match.gameId}}">{{match.gameId}}</div>
     <div class="col">{{match.lane}}</div>
     <div class="col">{{match.platformId}}</div>
     <div class="col">{{match.queue}}</div>
