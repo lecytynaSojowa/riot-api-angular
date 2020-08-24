@@ -44,7 +44,12 @@ export class UserPanelComponent implements OnInit {
         this.ifFailRequest();
       }
     }, (error: any) => {
-      this.ifFailRequest();
+      if (error.status === 403) {
+        this.ifFailRequest(error.error);
+      } else {
+        this.ifFailRequest();
+      }
+
     });
 
   }
@@ -52,7 +57,10 @@ export class UserPanelComponent implements OnInit {
     console.log(this.inputUsername);
   }
 
-  public ifFailRequest() {
+  public ifFailRequest(message?: string) {
+    if (message) {
+      this.errorMessage = message;
+    }
     this.displayErrorAlert = true;
     setTimeout(() => this.displayErrorAlert = false, 5000);
   }

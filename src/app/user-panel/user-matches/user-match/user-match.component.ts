@@ -15,8 +15,15 @@ export class UserMatchComponent implements OnInit {
   }
 
   public returnChampionUrl(): string {
-    let championId = this.match.championName.replace(`'`, '');
-    championId = this.titlecasePipe.transform(championId);
-    return `https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${championId}.png`;
+    let championName = this.match.championName.replace(`'`, '');
+    championName = this.titlecasePipe.transform(championName);
+    championName = championName.replace(' ', '');
+    if (championName === 'Wukong') {
+      championName = 'MonkeyKing';
+    }
+    if (championName === 'JarvanIv') {
+      championName = 'JarvanIV';
+    }
+    return `https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${championName}.png`;
   }
 }

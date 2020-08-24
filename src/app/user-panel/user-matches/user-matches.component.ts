@@ -20,7 +20,7 @@ export class UserMatchesComponent implements OnInit {
   }
 
   public getMatchesInfo() {
-    this.basicRiotApiService.matchesBySummonerName(this.summonerName, this.serverName).subscribe((result: any) => {
+    this.basicRiotApiService.matchesBySummonerName(this.summonerName, this.serverName).subscribe((result: Match[]) => {
       if(result) {
         this.matches = result;
       }
