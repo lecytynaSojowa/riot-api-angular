@@ -1,14 +1,14 @@
-<div  class="row">
+<div  class="row" [ngClass]="{'win-color':match.win, 'lose-color':!match.win}" routerLink="/match/{{match.gameId}}">
     <div class="col"><img src="{{returnChampionUrl()}}"></div>
     <div class="col">{{match.champion}}</div>
-    <div class="col" routerLink="/match/{{match.gameId}}">{{match.gameId}}</div>
+    <div class="col" >{{match.gameId}}</div>
     <div class="col">{{match.lane}}</div>
     <div class="col">{{match.platformId}}</div>
     <div class="col">{{match.queue}}</div>
     <div class="col">{{match.role}}</div>
     <div class="col">{{match.seson}}</div>
-    <div class="col">{{match.timestamp}}</div>    
+    <div class="col">{{match.timestamp | date}}</div>    
     <div class="col">{{match.win}}</div>    
-    <div class="col">{{match.gameDuration}}</div>    
+    <div class="col">{{match.gameDuration*1000 | date: 'mm:ss'}}</div>    
     <div class="col">{{match.gameMode}}</div>    
 </div>

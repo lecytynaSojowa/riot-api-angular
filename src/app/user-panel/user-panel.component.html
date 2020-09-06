@@ -1,4 +1,3 @@
-<div class="container tableWidth">
   <ngb-alert type="danger" *ngIf="displayErrorAlert" (close)="displayErrorAlert = false">{{errorMessage}}</ngb-alert>
   <div class="row">
     <div class="col-xs-12 col-lg-12">
@@ -25,8 +24,6 @@
               <div class="col-sm-12 col-md-4 form-group">
                 <button class="button add-info" type="submit">Dodaj</button>
                 <button class="button clear-info" type="button" (click)="onClear()">Wyczyść</button>
-                <!-- <button class="btn btn-success" type="submit">Dodaj</button>
-                <button class="btn btn-primary" type="button" (click)="onClear()">Wyczyść</button> -->
               </div>
               <div class="col-sm-12 col-md-4 form-group"></div>
             </div>
@@ -35,13 +32,11 @@
       </form>
     </div>
   </div>
-</div>
-<div class="container tableWidth">
+<div>
   <table class="table table-color">
     <tbody *ngIf="currentSummoner">
       <tr>
-        <td
-        
+        <td      
         >Account Id</td>
         <td>{{currentSummoner.accountId}}</td>
       </tr>
