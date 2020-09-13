@@ -37,11 +37,14 @@ export class UserPanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  public getSummonerInfo(summonerName: string, summonerServer: string) {
-    this.basicRiotApiService.summonerByNameExample(summonerName, summonerServer).subscribe((result: SummonerByNameResult) => {
+  public getSummonerInfo(summonerName: string, serverName: string) {
+    this.basicRiotApiService.summonerByNameExample(summonerName, serverName).subscribe((result: SummonerByNameResult) => {
       this.currentSummoner = result;
       if (!result) {
         this.ifFailRequest();
+      } else {
+        localStorage.setItem('summonerName', summonerName);
+        localStorage.setItem('serverName', serverName);
       }
     }, (error: any) => {
       if (error.status === 403) {
