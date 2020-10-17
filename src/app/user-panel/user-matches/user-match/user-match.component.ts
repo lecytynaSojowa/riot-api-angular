@@ -9,9 +9,28 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class UserMatchComponent implements OnInit {
   @Input() match: Match;
+  public kills = 0;
+  public deaths = 0;
+  public assists = 0;
+  public kd = 0;
+  public items:number[] = [];
   constructor(private titlecasePipe: TitleCasePipe) { }
 
   ngOnInit() {
+    const summonerName = localStorage.getItem('summonerName');
+    const participantIdentity = this.match.matchInfo.participantIdentities.find((participantIdentity) => {
+      return participantIdentity.player.summonerName === summonerName;
+    });
+    const participantId = participantIdentity.participantId;
+    const participant = this.match.matchInfo.participants.find((participant) => {
+      return participant.participantId === participantId;
+    });
+    this.kills = participant.stats.kills;
+    this.deaths = participant.stats.deaths;
+    this.assists = participant.stats.assists;
+    this.kd = (this.kills + this.assists) / this.deaths;
+    this.items.push(participant.stats.item0, participant.stats.item1, participant.stats.item2, participant.stats.item3, participant.stats.item4, participant.stats.item5, participant.stats.item6 );
+
   }
 
   public returnChampionUrl(): string {

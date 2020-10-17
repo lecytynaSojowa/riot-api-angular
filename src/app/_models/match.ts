@@ -1,3 +1,5 @@
+import { MatchFull } from './matchFull';
+
 export interface Match {
     champion: number;
     championName: string;
@@ -11,6 +13,7 @@ export interface Match {
     win: boolean;
     gameDuration: number;
     gameMode: string;
+    matchInfo: MatchFull;
 }
 enum Role {
     DUO = 'DUO',

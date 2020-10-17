@@ -1,14 +1,25 @@
 <div  class="row" [ngClass]="{'win-color':match.win, 'lose-color':!match.win}" routerLink="/match/{{match.gameId}}">
-    <div class="col"><img src="{{returnChampionUrl()}}"></div>
-    <div class="col">{{match.champion}}</div>
-    <div class="col" >{{match.gameId}}</div>
-    <div class="col">{{match.lane}}</div>
-    <div class="col">{{match.platformId}}</div>
-    <div class="col">{{match.queue}}</div>
-    <div class="col">{{match.role}}</div>
-    <div class="col">{{match.seson}}</div>
-    <div class="col">{{match.timestamp | date}}</div>    
-    <div class="col">{{match.win}}</div>    
-    <div class="col">{{match.gameDuration*1000 | date: 'mm:ss'}}</div>    
-    <div class="col">{{match.gameMode}}</div>    
-</div>
+    <div class="col">
+        <div><img src="{{returnChampionUrl()}}"></div>
+        <div>{{this.match.championName}}</div>
+     </div>
+     <div class="col">
+         <div >Kills: {{kills}}</div>
+         <div >Deaths: {{deaths}}</div>
+         <div >Assists: {{assists}}</div>
+         <div >kd: {{kd | number}}</div>
+     </div>
+     <div class="col">
+         <div>Role: {{match.role}}</div>
+         <div>Mode: {{match.gameMode}}</div>
+         <div>Game Duration: {{match.gameDuration*1000 | date: 'mm:ss'}}</div>
+     </div>
+     <div class="col"> 
+         <div>Match start at: {{match.timestamp | date}}</div>
+         <div>Lane: {{match.lane}}</div>
+     </div>
+     <div class="col">
+        <div ><img *ngFor="let item of items" src="{{'https://ddragon.leagueoflegends.com/cdn/10.19.1/img/item/' + item + '.png'}}" class="item" alt=""></div>
+    </div>
+ </div>
+ 
