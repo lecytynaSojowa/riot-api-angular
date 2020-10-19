@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { appRouters } from './routers';
 import { MatchInfoComponent } from './match-info/match-info.component';
+import { ParticipantsComponent } from './match-info/participants/participants.component';
+import { ParticipantComponent } from './match-info/participants/participant/participant.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MatchInfoComponent } from './match-info/match-info.component';
     UserPanelComponent,
     UserMatchesComponent,
     UserMatchComponent,
-    MatchInfoComponent
+    MatchInfoComponent,
+    ParticipantsComponent,
+    ParticipantComponent
   ],
   imports: [
     BrowserModule,

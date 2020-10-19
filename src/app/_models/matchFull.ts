@@ -180,3 +180,9 @@
         gameMode: string;
         participants: Participant[];
     }
+
+    export interface SingleParticipant {
+        participant: Participant;
+        team: Team;
+        participantIdentities: ParticipantIdentity;
+    }
