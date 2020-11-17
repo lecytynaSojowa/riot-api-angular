@@ -3,6 +3,7 @@ import { BasicRiotApiService } from '../_services/basic-riot-api.service';
 import { SummonerByNameResult } from '../_models/summoner-by-name-result';
 import { NgForm } from '@angular/forms';
 import { ServerName } from '../_models/server-name';
+import { DragonDataService } from '../_services/dragon-data.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -18,7 +19,8 @@ export class UserPanelComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   public basicServerName: ServerName[] = [{ value: 'EUNE', label: 'European Nordic East' }, { value: 'EUW', label: 'European West' }, { value: 'NA', label: 'North America' }];
   constructor(
-    private basicRiotApiService: BasicRiotApiService) {
+    private basicRiotApiService: BasicRiotApiService,
+    private dragonService: DragonDataService) {
   }
 
   @ViewChild('form', { static: false }) carForm: NgForm;
@@ -66,5 +68,9 @@ export class UserPanelComponent implements OnInit {
     }
     this.displayErrorAlert = true;
     setTimeout(() => this.displayErrorAlert = false, 5000);
+  }
+
+  public displayPlayerIcon(): string {
+    return `https://ddragon.leagueoflegends.com/cdn/${this.dragonService.getLastDDVer()}/img/profileicon/${this.currentSummoner.profileIconId}.png`
   }
 }

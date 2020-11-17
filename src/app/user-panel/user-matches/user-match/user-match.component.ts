@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Match } from 'src/app/_models/match';
 import { TitleCasePipe } from '@angular/common';
+import { DragonDataService } from 'src/app/_services/dragon-data.service';
 
 @Component({
   selector: 'app-user-match',
@@ -13,8 +14,9 @@ export class UserMatchComponent implements OnInit {
   public deaths = 0;
   public assists = 0;
   public kd = 0;
-  public items:number[] = [];
-  constructor(private titlecasePipe: TitleCasePipe) { }
+  public items: number[] = [];
+  constructor(private titlecasePipe: TitleCasePipe,
+    private dragonService: DragonDataService) { }
 
   ngOnInit() {
     const summonerName = localStorage.getItem('summonerName');
@@ -29,7 +31,7 @@ export class UserMatchComponent implements OnInit {
     this.deaths = participant.stats.deaths;
     this.assists = participant.stats.assists;
     this.kd = (this.kills + this.assists) / this.deaths;
-    this.items.push(participant.stats.item0, participant.stats.item1, participant.stats.item2, participant.stats.item3, participant.stats.item4, participant.stats.item5, participant.stats.item6 );
+    this.items.push(participant.stats.item0, participant.stats.item1, participant.stats.item2, participant.stats.item3, participant.stats.item4, participant.stats.item5, participant.stats.item6);
 
   }
 
@@ -43,6 +45,6 @@ export class UserMatchComponent implements OnInit {
     if (championName === 'JarvanIv') {
       championName = 'JarvanIV';
     }
-    return `https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${championName}.png`;
+    return `https://ddragon.leagueoflegends.com/cdn/${this.dragonService.getLastDDVer()}/img/champion/${championName}.png`;
   }
 }

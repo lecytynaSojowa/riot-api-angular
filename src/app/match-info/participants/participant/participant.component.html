@@ -1,1 +1,26 @@
-<p>participant works!</p>
+<div class="row" [ngClass]="{'win-color':winOrLose(), 'lose-color':!winOrLose()}">
+    <div class="col">
+        <div><img src=""></div>
+        <div>{{singleParticipant.participantIdentities.player.summonerName}}</div>
+        <td><img class="profileIcon" src="{{displayPlayerIcon()}}" alt="profile-icon" id="profile-icon">
+        </td>
+    </div>
+    <div class="col">
+        <div>Kills</div>
+        <div>Deaths</div>
+        <div>Assists</div>
+        <div>kd</div>
+    </div>
+    <div class="col">
+        <div>Role:</div>
+        <div>Mode:</div>
+        <div>Game Duration:</div>
+    </div>
+    <div class="col">
+        <div>Match start at:</div>
+        <div>Lane:</div>
+    </div>
+    <div class="col">
+        <div></div>
+    </div>
+</div>
