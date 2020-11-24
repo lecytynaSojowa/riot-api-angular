@@ -1,5 +1,5 @@
 <div  class="row" [ngClass]="{'win-color':match.win, 'lose-color':!match.win}" routerLink="/match/{{match.gameId}}">
-    <div class="col">
+    <div class="col center">
         <div><img src="{{returnChampionUrl()}}"></div>
         <div>{{this.match.championName}}</div>
      </div>
@@ -19,7 +19,7 @@
          <div>Lane: {{match.lane}}</div>
      </div>
      <div class="col">
-        <div ><img *ngFor="let item of items" src="{{'https://ddragon.leagueoflegends.com/cdn/10.19.1/img/item/' + item + '.png'}}" class="item" alt=""></div>
+        <div ><img *ngFor="let item of items" src="{{returnItemName(item)}}" class="item" alt=""></div>
     </div>
  </div>
  

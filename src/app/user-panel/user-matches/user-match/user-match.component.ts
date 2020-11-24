@@ -47,4 +47,8 @@ export class UserMatchComponent implements OnInit {
     }
     return `https://ddragon.leagueoflegends.com/cdn/${this.dragonService.getLastDDVer()}/img/champion/${championName}.png`;
   }
+
+  public returnItemName(item: number): string {
+    return `https://ddragon.leagueoflegends.com/cdn/${this.dragonService.getLastDDVer()}/img/item/${item}.png`;
+  }
 }

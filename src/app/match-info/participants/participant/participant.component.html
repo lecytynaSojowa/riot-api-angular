@@ -1,15 +1,13 @@
-<div class="row" [ngClass]="{'win-color':winOrLose(), 'lose-color':!winOrLose()}">
-    <div class="col">
-        <div><img src=""></div>
+<div class="row" [ngClass]="{'win-color':winOrLose(), 'lose-color':!winOrLose()}" (click)="redirectToUser()">
+    <div class="col center">
+        <img class="profileIcon" src="{{displayPlayerIcon()}}" alt="profile-icon" id="profile-icon">
         <div>{{singleParticipant.participantIdentities.player.summonerName}}</div>
-        <td><img class="profileIcon" src="{{displayPlayerIcon()}}" alt="profile-icon" id="profile-icon">
-        </td>
     </div>
     <div class="col">
-        <div>Kills</div>
-        <div>Deaths</div>
-        <div>Assists</div>
-        <div>kd</div>
+        <div>Kills: {{singleParticipant.participant.stats.kills}}</div>
+        <div>Deaths: {{singleParticipant.participant.stats.deaths}}</div>
+        <div>Assists: {{singleParticipant.participant.stats.assists}}</div>
+        <div>kd: {{kdaNumber() | number:'1.0-2'}}</div>
     </div>
     <div class="col">
         <div>Role:</div>
@@ -21,6 +19,6 @@
         <div>Lane:</div>
     </div>
     <div class="col">
-        <div></div>
+        <div><img *ngFor="let item of items" src="{{returnItemName(item)}}" class="item" alt=""></div>
     </div>
 </div>
