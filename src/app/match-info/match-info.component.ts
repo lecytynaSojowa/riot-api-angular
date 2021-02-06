@@ -14,7 +14,7 @@ export class MatchInfoComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data) => {
-      this.match = data[`MatchFull`][0];
+      this.match = data[`MatchFull`];
     });
   }
 

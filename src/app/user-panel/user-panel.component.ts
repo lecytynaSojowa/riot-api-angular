@@ -29,7 +29,7 @@ export class UserPanelComponent implements OnInit {
     this.inputUsername = form.value.summonerName;
     this.server = form.value.serverName;
     this.getSummonerInfo(form.value.summonerName, form.value.serverName);
-    this.onClear
+    this.onClear();
   }
 
   onClear() {

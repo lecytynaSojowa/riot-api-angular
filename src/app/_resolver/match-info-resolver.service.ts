@@ -13,9 +13,8 @@ export class MatchInfoResolverService implements Resolve<Match>  {
   constructor(private http: HttpClient) { }
   resolve(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot): Match | import('rxjs').Observable<Match> | Promise<Match> {
     const matchId = _route.params.id;
-    const summonerName = localStorage.getItem('summonerName');
     const serverName = localStorage.getItem('serverName');
-    const url = `http://localhost:5000/api/Match/GetSummonerMatch/${summonerName}/${serverName}/1`;
+    const url = `http://localhost:5000/api/Match/GetMatchInfo/${matchId}/${serverName}`;
     return this.http.get<Match>(url).pipe(catchError((error) => {
       return of(null);
     }));
