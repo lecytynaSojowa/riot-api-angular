@@ -14,6 +14,10 @@ import { appRouters } from './routers';
 import { MatchInfoComponent } from './match-info/match-info.component';
 import { ParticipantsComponent } from './match-info/participants/participants.component';
 import { ParticipantComponent } from './match-info/participants/participant/participant.component';
+import { DefaultComponent } from './default/default.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserInfoComponent } from './profile/user-info/user-info.component';
+import { UserAnalysisComponent } from './progfile/user-analysis/user-analysis.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { ParticipantComponent } from './match-info/participants/participant/part
     UserMatchComponent,
     MatchInfoComponent,
     ParticipantsComponent,
-    ParticipantComponent
+    ParticipantComponent,
+    DefaultComponent,
+    ProfileComponent,
+    UserInfoComponent,
+    UserAnalysisComponent
   ],
   imports: [
     BrowserModule,

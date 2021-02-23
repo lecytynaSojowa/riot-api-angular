@@ -4,6 +4,7 @@ import { SummonerByNameResult } from '../_models/summoner-by-name-result';
 import { NgForm } from '@angular/forms';
 import { ServerName } from '../_models/server-name';
 import { DragonDataService } from '../_services/dragon-data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -18,9 +19,11 @@ export class UserPanelComponent implements OnInit {
   public errorMessage = 'Check your info!';
   // tslint:disable-next-line: max-line-length
   public basicServerName: ServerName[] = [{ value: 'EUNE', label: 'European Nordic East' }, { value: 'EUW', label: 'European West' }, { value: 'NA', label: 'North America' }];
+
   constructor(
     private basicRiotApiService: BasicRiotApiService,
-    private dragonService: DragonDataService) {
+    private dragonService: DragonDataService,
+    private route: Router) {
   }
 
   @ViewChild('form', { static: false }) carForm: NgForm;
@@ -28,8 +31,10 @@ export class UserPanelComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.inputUsername = form.value.summonerName;
     this.server = form.value.serverName;
-    this.getSummonerInfo(form.value.summonerName, form.value.serverName);
-    this.onClear();
+    this.route.navigate([`/profile/${this.server}/${this.inputUsername}`]);
+
+    // this.getSummonerInfo(form.value.summonerName, form.value.serverName);
+    // this.onClear();
   }
 
   onClear() {
