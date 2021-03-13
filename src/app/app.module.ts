@@ -5,19 +5,16 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { UserMatchesComponent } from './user-panel/user-matches/user-matches.component';
-import { UserMatchComponent } from './user-panel/user-matches/user-match/user-match.component';
 import { TitleCasePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { appRouters } from './routers';
-import { MatchInfoComponent } from './match-info/match-info.component';
-import { ParticipantsComponent } from './match-info/participants/participants.component';
-import { ParticipantComponent } from './match-info/participants/participant/participant.component';
 import { DefaultComponent } from './default/default.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserInfoComponent } from './profile/user-info/user-info.component';
-import { UserAnalysisComponent } from './progfile/user-analysis/user-analysis.component';
+import { UserAnalysisComponent } from './profile/user-analysis/user-analysis.component';
+import { UserMatchesComponent } from './profile/user-matches/user-matches.component';
+import { UserMatchComponent } from './profile/user-matches/user-match/user-match.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +22,6 @@ import { UserAnalysisComponent } from './progfile/user-analysis/user-analysis.co
     UserPanelComponent,
     UserMatchesComponent,
     UserMatchComponent,
-    MatchInfoComponent,
-    ParticipantsComponent,
-    ParticipantComponent,
     DefaultComponent,
     ProfileComponent,
     UserInfoComponent,
